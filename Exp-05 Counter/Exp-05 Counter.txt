@@ -1,0 +1,163 @@
+// 7-Segment Counter using Push Button
+
+const int buttonPin = 12;
+const int delayTime = 200;
+
+int digit = 0;
+bool lastButtonState = HIGH;
+
+void setup()
+{
+  pinMode(buttonPin, INPUT_PULLUP);
+
+  for (int i = 1; i <= 7; i++)
+  {
+    pinMode(i, OUTPUT);
+  }
+
+  displayDigit(digit);
+}
+
+void loop()
+{
+  bool buttonState = digitalRead(buttonPin);
+
+  // Detect button press
+  if (lastButtonState == HIGH && buttonState == LOW)
+  {
+    digit++;
+
+    if (digit > 9)
+      digit = 0;
+
+    displayDigit(digit);
+
+    delay(delayTime);   // Debounce
+  }
+
+  lastButtonState = buttonState;
+}
+
+void displayDigit(int num)
+{
+  switch (num)
+  {
+    case 0: zero(); break;
+    case 1: one(); break;
+    case 2: two(); break;
+    case 3: three(); break;
+    case 4: four(); break;
+    case 5: five(); break;
+    case 6: six(); break;
+    case 7: seven(); break;
+    case 8: eight(); break;
+    case 9: nine(); break;
+  }
+}
+
+void zero()
+{
+  for (int i = 1; i < 7; i++)
+    digitalWrite(i, HIGH);
+
+  digitalWrite(7, LOW);
+}
+
+void one()
+{
+  digitalWrite(1, LOW);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
+}
+
+void two()
+{
+  digitalWrite(1, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, LOW);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, LOW);
+  digitalWrite(7, HIGH);
+}
+
+void three()
+{
+  digitalWrite(1, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, HIGH);
+}
+
+void four()
+{
+  digitalWrite(1, LOW);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+}
+
+void five()
+{
+  digitalWrite(1, HIGH);
+  digitalWrite(2, LOW);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, LOW);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+}
+
+void six()
+{
+  digitalWrite(1, HIGH);
+  digitalWrite(2, LOW);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+}
+
+void seven()
+{
+  digitalWrite(1, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
+}
+
+void eight()
+{
+  digitalWrite(1, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+}
+
+void nine()
+{
+  digitalWrite(1, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, LOW);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+}
