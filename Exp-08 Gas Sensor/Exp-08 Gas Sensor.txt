@@ -1,0 +1,32 @@
+#define sensorPin A0
+#define ledPin 13
+
+// You can adjust this threshold value based on your potentiometer in Proteus
+int threshold = 600; 
+
+void setup() {
+  pinMode(sensorPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  
+  // Start serial communication for the Virtual Terminal
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Read the analog value from the MQ-6 sensor
+  int sensorValue = analogRead(sensorPin);
+  
+  // Print the value to the Virtual Terminal
+  Serial.print("Analogic Value coming from the sensor : ");
+  Serial.println(sensorValue);
+  
+  // Turn on the LED if the value exceeds the threshold
+  if (sensorValue > threshold) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+  
+  // A small delay for stability in the simulation
+  delay(100);
+}
