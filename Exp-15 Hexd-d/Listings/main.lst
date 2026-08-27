@@ -1,0 +1,48 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              08/27/2026 11:45:35 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          void main(void)
+   4          {
+   5   1          unsigned char hexa = 0x08;
+   6   1          unsigned char hundreds, tens, units;
+   7   1      
+   8   1          ACC = hexa;
+   9   1          B = 10;
+  10   1          ACC = ACC / B;
+  11   1          units = B;
+  12   1      
+  13   1          B = 10;
+  14   1          ACC = ACC / B;
+  15   1          tens = B;
+  16   1      
+  17   1          hundreds = ACC;
+  18   1      
+  19   1          P0 = units;
+  20   1          P1 = tens;
+  21   1          P2 = hundreds;
+  22   1      
+  23   1          while(1);
+  24   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

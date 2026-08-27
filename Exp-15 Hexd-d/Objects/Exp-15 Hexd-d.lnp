@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\Exp-15 Hexd-d" 
+PRINT(".\Listings\Exp-15 Hexd-d.m51")

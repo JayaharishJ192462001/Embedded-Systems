@@ -1,0 +1,43 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              08/27/2026 10:52:59 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h> 
+   2          void serial_ISR(void) interrupt 4 
+   3          { 
+   4   1       if(RI) 
+   5   1       { 
+   6   2       P1 = SBUF; 
+   7   2       RI = 0; 
+   8   2       } 
+   9   1      } 
+  10          void main() 
+  11          { 
+  12   1       TMOD=0x20; 
+  13   1       TH1=0xFD; 
+  14   1       SCON=0x50; 
+  15   1       TR1=1; 
+  16   1       ES=1; 
+  17   1       EA=1; 
+  18   1       while(1); 
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     26    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
