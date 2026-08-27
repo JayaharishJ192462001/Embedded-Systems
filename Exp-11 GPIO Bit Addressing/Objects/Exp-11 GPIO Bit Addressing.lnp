@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\Exp-11 GPIO Bit Addressing" 
+PRINT(".\Listings\Exp-11 GPIO Bit Addressing.m51")

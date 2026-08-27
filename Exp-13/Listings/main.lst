@@ -1,0 +1,43 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              08/27/2026 11:09:14 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          void main(void)
+   4          {
+   5   1          unsigned int i;
+   6   1          unsigned int array[5] = {0x1111, 0x2222, 0x8888, 0x4444, 0xABCD};
+   7   1          unsigned long sum = 0;
+   8   1      
+   9   1          for(i = 0; i < 5; i++)
+  10   1          {
+  11   2              sum = sum + array[i];
+  12   2          }
+  13   1      
+  14   1          P0 = (unsigned char)(sum & 0xFF);
+  15   1          P1 = (unsigned char)((sum >> 8) & 0xFF);
+  16   1          P2 = (unsigned char)((sum >> 16) & 0xFF);
+  17   1      
+  18   1          while(1);
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    114    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

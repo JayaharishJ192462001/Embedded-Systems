@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\Exp-12 MULTIPLY TWO 16-BIT BINARY" 
+PRINT(".\Listings\Exp-12 MULTIPLY TWO 16-BIT BINARY.m51")
